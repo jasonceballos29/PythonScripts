@@ -1,8 +1,8 @@
 # Allow user input for Length and set to a variable
-length = int(input("What is the length in feet? " ))
+length = float(input("What is the length in feet? " ))
 
 # Allow user input for Width and set to a variable
-height = int(input("What is the height in feet? "))
+height = float(input("What is the height in feet? "))
 
 # Set Length X Width to a new variable
 length_width = length * height

@@ -5,4 +5,4 @@ firstname = input("What is your first name? ")
 lastname = input("What is your last name? ")
 
 # Print a welcome message that includes the user's First Name and Last Name using the variables.
-Your name is FIRSTNAME AND LASTNAME
+print("Your name is", firstname, lastname)

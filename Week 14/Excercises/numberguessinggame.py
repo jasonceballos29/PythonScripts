@@ -20,9 +20,8 @@ while run:
         print('Guess too high... Try again!')
         run = False
     if user_input == 7:
-        print('You won!')
+        print('You won! Thanks for playing!!')
         run = False        
     else:
         print('Please try again!')
         continue
-    

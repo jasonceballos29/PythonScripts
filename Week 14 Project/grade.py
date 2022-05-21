@@ -6,7 +6,7 @@
 
 scores = int(input("Please enter your grade in numeric format to receive a letter grade: "))
 
-# Defining a function that will caculate the letter grade based on the number that is entered by the user 
+# Defining a function that will calculate the letter grade based on the number that is entered by the user 
 
 def determine_grade(scores):
     if scores >= 90 and scores <= 100:

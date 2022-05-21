@@ -2,11 +2,11 @@
 #Authored by Jason Ceballos
 #05/18/2022
 
-#We will set the variable to our desired number
+#We will set the variable to our desired number. The user doesn't see or know this. This is for our reference.
 
 right_number = 7
 
-#Now we are turning this into a function so we can validate it works:
+#Now we are turning this into a function with a while loop to prompt the user until they guess correctly:
 
 def guessing_game(user_input):
     run = True

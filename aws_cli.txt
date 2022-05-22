@@ -1,0 +1,24 @@
+aws ec2 describe-vpcs \
+aws ec2 describe-subnets
+aws ec2
+aws ec2 describe-instances
+aws ec2 modify-instance-attribute
+aws ec2 start-instances
+aws ec2 stop-instances
+aws ec2 wait instance-running
+aws ec2 wait instance-stopped
+
+ssh -i SSHRemote.pem ec2-user@ec2-3-87-196-110.compute-1.amazonaws.com
+
+aws ec2 run-instances --image-id ami-xxxxxxxx --count 1 --instance-type t2.micro --key-name MyKeyPair --security-group-ids sg-903004f8 --subnet-id subnet-6e7f829e
+
+AMI Template (Free Tier): ami-0c02fb55956c7d316
+Security Group: sg-018ad1b022600a599
+Subnet: subnet-c8d8c3e0
+aws ec2 run-instances --image-id ami-0c02fb55956c7d316 --count 1 --instance-type t2.micro --key-name "SSH Remote" --security-group-ids sg-018ad1b022600a599 --subnet-id subnet-c8d8c3e0
+
+Instance ID: i-05c92d956116ee0bc
+aws ec2 stop-instances --instance-ids i-05c92d956116ee0bc
+aws ec2 start-instances --instance-ids i-05c92d956116ee0bc
+
+scp -i SSHRemote.pem /path/EC2BootstrapScript.txt ec2-user@ec2-3-87-196-110.compute-1.amazonaws.com:path/

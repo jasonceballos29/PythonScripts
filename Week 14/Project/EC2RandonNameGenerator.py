@@ -6,7 +6,6 @@
 # Several departments share an AWS environment. You need to ensure that the EC2s are properly named and are unique so team members can easily tell who the EC2 instances belong to. 
 # Use Python to create your unique EC2 names that the users can then attach to the instances. The Python Script should:
 
-import numbers
 import random
 import string
 

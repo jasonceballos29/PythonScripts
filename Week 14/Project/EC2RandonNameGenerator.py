@@ -9,7 +9,7 @@
 import random
 import string
 
-# Generate random characters and numbers that will be included in the unique name.
+# Function to generate random characters and numbers that will be included in the unique name.
 
 def getEC2NameString(length):
     """Generate a random string"""
@@ -24,7 +24,7 @@ ec2_amount = int(input("Please enter how many EC2 instance names you need: "))
 
 # 2. Allow the user to input the name of their department that is used in the unique name.
 
-departments = ["Marketing", "Accounting", "FinOps"]
+departments = ("Marketing", "Accounting", "FinOps")
 dept_name = str(input("Please enter your department name: "))
 print("Your Department is:" , dept_name)
 # We only want users from the departments list we provided to use this program. Everyone else gets the print command and program exits

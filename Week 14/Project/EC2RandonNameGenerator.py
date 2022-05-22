@@ -20,8 +20,13 @@ print("Welcome to the EC2 Random Name Generator!")
 
 # 1. Allow the user to input how many EC2 instances they want names for and output the same amount of unique names.
 
-ec2_amount = int(input("Please enter how many EC2 instance names you need: "))
-raw_ec2_amount = int(ec2_amount)
+while True:
+  try:
+    ec2_amount = int(input("Please enter how many EC2 instance names you need: "))
+    break
+  except ValueError:
+      print("Please input integer only...")  
+      continue
 
 # 2. Allow the user to input the name of their department that is used in the unique name.
 

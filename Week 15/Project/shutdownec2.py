@@ -5,13 +5,13 @@
 
 import boto3 #import AWS boto3 library
 region='us-east-1'
-instance_state = 'running'
-ec2 = boto3.client('ec2', region_name=region)
+ec2 = boto3.client('ec2',region_name='region')
+a = ec2.describe_instances()
 #ec2 = boto3.resource('ec2',"us-east-1") 
 
 # Filter all running instances
 
-instances = ec2.instances.all(Filters=[{'Name': 'instance-state-name', 'Values': [instance_state]}])
+instances = ec2.instances.all(Filters=[{'Name': 'instance-state-name', 'Values': ['running']}])
 
 # Declared list to store running instances
 all_running_instances = []

@@ -9,9 +9,12 @@ import json
 import boto3
 import datetime
 
+
 # Create SQS client
 sqs_client = boto3.client('sqs')
 current_time = datetime.datetime.now()
+
+print(current_time)
 
 def lambda_handler(event, context):
     # Get the queue
@@ -44,6 +47,6 @@ def lambda_handler(event, context):
 )
 
     # Print the current date and time then get the message ID and MD5
-    print(current_time.get('CurrentDate_Time'))
+   
     print(response.get('MessageId'))
     print(response.get('MD5OfMessageBody'))

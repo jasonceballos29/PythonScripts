@@ -9,35 +9,22 @@ import json
 import boto3
 import datetime
 
+
+# Create SQS client
+sqs_client = boto3.client('sqs')
+current_time = datetime.datetime.now()
 QUEUE_NAME = os.environ['QUEUE_NAME']
 QUEUE_URL = os.environ['QUEUE_URL']
 
 
-# Create SQS client
-client = boto3.client('sqs')
-current_time = datetime.datetime.now()
-
-print(current_time)
-
 def lambda_handler(event, context):
-    # Get the event information to send to the queue
-    print(event.keys())
-    
-    for k , v in event.items():
-        print(k, v)
-        
-   # Get the queue
-    #queue = sqs_client.get_queue_by_name(QueueName='QUEUE_NAME')
-    queue = client.get_queue_url(QueueName='SQSQueue')
-    
-    # Send message to SQS queue
-    response = client.send_message(
-    QueueUrl = queue,
-    DelaySeconds=10,
+    print(current_time)    
+    response = sqs_client.send_message(
+    QueueUrl= QUEUE_URL,
     MessageAttributes={
         'Title': {
             'DataType': 'String',
-            'StringValue': 'Test Message from Jason Ceballos'
+            'StringValue': 'Visit from API Endpoint Logged'
         },
         'Author': {
             'DataType': 'String',
@@ -49,10 +36,8 @@ def lambda_handler(event, context):
         }
     },
     MessageBody=(
-        'This is a test message from Jason Ceballos.'
+        'Access of external API Endpoint detected.'
         'Week 16 Project. Thank you!'
     )
 )
-  
-   
-    
+    #print(response)

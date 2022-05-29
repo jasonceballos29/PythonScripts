@@ -25,7 +25,7 @@ def lambda_handler(event, context):
     # Send message to SQS queue
     response = res.send_message(
     QueueUrl=res,
-    DelaySeconds=10,
+    DelaySeconds=5,
     MessageAttributes={
         'Title': {
             'DataType': 'String',

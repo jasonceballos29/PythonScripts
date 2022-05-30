@@ -16,7 +16,7 @@ response = sqs_client.create_queue(
         'CreatedBy': 'Jason Ceballos'
     }
 )
-urlresponse = sqs_client.get_queue_url(QueueName='SQSQueue', QueueOwnerAWSAccountId='254452634027')
+urlresponse = sqs_client.get_queue_url(QueueName='SQSQueue', QueueOwnerAWSAccountId='12345678910111')
 
 print("The Queue URL is", urlresponse)
 

@@ -16,12 +16,9 @@ current_time = datetime.datetime.now()
 QUEUE_NAME = os.environ['QUEUE_NAME']
 QUEUE_URL = os.environ['QUEUE_URL']
 
-print(current_time)
-
 def lambda_handler(event, context):
-    #res = sqs_client.get_queue_url(QueueName=QUEUE_NAME)
     response = sqs_client.send_message(
-    QueueUrl= QUEUE_URL,
+    QueueUrl= 'https://sqs.us-east-1.amazonaws.com/254452634027/SQSQueue',
     DelaySeconds=3,
     MessageAttributes={
         'Title': {
@@ -42,3 +39,5 @@ def lambda_handler(event, context):
         'Week 16 Project. Thank you!'
     )
 )
+    print(response)
+    print(current_time)

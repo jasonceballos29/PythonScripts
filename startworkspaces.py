@@ -9,7 +9,7 @@ AWSWorkSpaces = boto3.client('workspaces',region_name='region')
 a = AWSWorkSpaces.describe_workspaces()
 
 
-# Filter all running WorkSpaces
+# Filter all stopped WorkSpaces
 
 workspaces = AWSWorkSpaces.Client.describe_workspaces(Filters=[{'Name': 'State', 'Values': ['STOPPED']}])
 
@@ -25,16 +25,16 @@ for workspace in workspaces:
      if workspaces.tags != None:
          for tags in workspaces.tags:
              
-            # Instances with tag 'Dev'
+            # Instances with tag 'MaintenanceWindow'
              if tags["Key"] == specific_tag:
                 
-                # Remove instances with specfic tags from all running instances
-                 all_running_instances.remove(instance)
+                # Start WorkSpaces with specfic tags to allow patching
+                 all_running_workspaces.start(workspace)
                     
-#print(all_running_instances)
-for specific in all_running_instances:
-    print(f'Stopping EC2 instance: {specific.id}')
-    specific.wait_until_stopped()
-    print(f'EC2 instance "{specific.id}" has been stopped')
+#print(all_running_workspaces)
+for specific in all_running_workspaces:
+    print(f'Starting AWS WorkSpaces: {specific.id}')
+    specific.wait_until_started()
+    print(f'AWS WorkSpace "{specific.id}" has started')
     # print(specific)
     # specific.stop()

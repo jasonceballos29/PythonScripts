@@ -1,5 +1,5 @@
 # Start AWS WorkSpaces Python Script
-# Also checks for Specific Tag before shutting down
+# Also checks for Specific Tag before starting up
 # Authored by Jason Ceballos
 # 04/20/23
 
